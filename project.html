@@ -1,1 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Webpage Layout</title>
+    <link rel="icon" href="https://www.geeksforgeeks.org/html-favicon/?ref=lbp" type=image/x-icon">
+    <style>
+        table,
+        th,
+        td{
+            border: 1px solid black;
+            border-collapse:collapse ;
+        }
+       
+       .img-right {
+        float: top;
+        margin:40px;
+    
 
+        }
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* General styles */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #444;
+            padding: 10px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* Layout */
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 20px;
+        }
+
+        .main-content {
+            flex: 3;
+            padding: 20px;
+        }
+
+        .sidebar {
+            flex: 1;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 20px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+        }
+        .personal-details h3 {
+            margin-left: 20px; /* Adjust this value to move the text right */
+        }
+        
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .home-button {
+            padding: 10px 20px;
+            background-color: #4CAF50; /* Green background */
+            color: white; /* White text */
+            border: none; /* No border */
+            text-decoration: none; /* No underline */
+            font-size: 16px; /* Font size */
+            border-radius: 5px; /* Rounded corners */
+            cursor: pointer;
+            margin: 20px;
+        }
+
+        .home-button:hover {
+            background-color: #45a049;
+        }
+
+        /* Hidden menu for Home button */
+        .dropdown {
+            display: none;
+            margin-top: 20px;
+        }
+
+        .dropdown a {
+            display: block;
+            padding: 10px;
+            margin: 5px 0;
+            background-color: #eee;
+            color: #333;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .dropdown a:hover {
+            background-color: #ddd;
+        }
+
+        .show {
+            display: block;
+        }
+
+        /* Style for the link section */
+        .link-section {
+            display: none;
+            margin-top: 20px;
+        }
+
+        .link-section ul {
+            list-style-type: none;
+        }
+
+        .link-section ul li {
+            margin: 5px 0;
+        }
+
+        .link-section ul li a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+
+        .link-section ul li a:hover {
+            text-decoration: underline;
+        }
+           
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1>MY DETAILS</h1>
+        <p>Welcome to my webpage layout</p>
+    </header>
+
+    <!-- Navigation Bar -->
+    <button class="home-button" onclick="toggleDropdown()">Home</button>
+
+    <!-- Dropdown Options -->
+    <div class="dropdown" id="homeDropdown">
+        <a href="#" onclick="showLinks('study')">Study</a>
+        <a href="#" onclick="showLinks('sports')">Sports</a>
+        <a href="#" onclick="showLinks('online')">Online Courses</a>
+    </div>
+
+    <!-- Link Sections -->
+    <div class="link-section" id="studyLinks">
+        <h3>Study Resources</h3>
+        <ul>
+            <li><a href="https://www.khanacademy.org" target="_blank">Khan Academy</a></li>
+            <li><a href="https://www.coursera.org" target="_blank">Coursera</a></li>
+            <li><a href="https://www.edx.org" target="_blank">edX</a></li>
+        </ul>
+    </div>
+
+    <div class="link-section" id="sportsLinks">
+        <h3>Sports Resources</h3>
+        <ul>
+            <li><a href="https://www.espn.com" target="_blank">ESPN</a></li>
+            <li><a href="https://www.olympic.org" target="_blank">Olympics Official Site</a></li>
+            <li><a href="https://www.sportskeeda.com" target="_blank">Sportskeeda</a></li>
+        </ul>
+    </div>
+
+    <div class="link-section" id="onlineLinks">
+        <h3>Online Courses</h3>
+        <ul>
+            <li><a href="https://www.udemy.com" target="_blank">Udemy</a></li>
+            <li><a href="https://www.skillshare.com" target="_blank">Skillshare</a></li>
+            <li><a href="https://www.pluralsight.com" target="_blank">Pluralsight</a></li>
+        </ul>
+    </div>
+
+    <script>
+        function toggleDropdown() {
+            var dropdown = document.getElementById("homeDropdown");
+            dropdown.classList.toggle("show");
+        }
+
+        function showLinks(section) {
+            // Hide all sections
+            var sections = document.getElementsByClassName("link-section");
+            for (var i = 0; i < sections.length; i++) {
+                sections[i].style.display = 'none';
+            }
+
+            // Show the selected section
+            if (section === 'study') {
+                document.getElementById("studyLinks").style.display = 'block';
+            } else if (section === 'sports') {
+                document.getElementById("sportsLinks").style.display = 'block';
+            } else if (section === 'online') {
+                document.getElementById("onlineLinks").style.display = 'block';
+            }
+        }
+
+        // Close dropdown if clicked outside
+        window.onclick = function(event) {
+            if (!event.target.matches('.home-button')) {
+                var dropdown = document.getElementById("homeDropdown");
+                if (dropdown.classList.contains('show')) {
+                    dropdown.classList.remove('show');
+                }
+            }
+        }
+    </script>
+<!-- Main Content Area -->
+<div class="main-content">
+    <h2 style="color: purple;">PERSONAL DETAILS</h2>
+    <div class="img-right" ></div>
+        <img src="IMG.jpg.jpg" alt="Description of Image" width="150" >
+    </div>
+    <ol class="personal-details">
+   <text style="margin-right:20px;">
+    <h3>NAME:ITHESH JS</h3>
+    <h3>USN:4HG23CS404</h3>
+    <h3>PH NO:9019816016</h3>
+    <h3>GMAIL:itheshjs2004@gmail.com</h3>
+    <h3>ADHAAR NO:7870 0559 3512</h3>
+    <h3>SSP ID:20210448528</h3>
+    <h3>ADDRESS:JANNAPURA MUDIGERE(T) <br>CHIKKAMAGALURU</h3>
+   </text>
+    </ol>
+    <hr style="color:black;">
+    <br>
+
+<h2 style="color:purple;">CGPA AND SGPA DETAILS</h2>
+
+<br>
+    <table style="width: 100%">
+        <tr>
+            <th>1ST SEM SGPA</th>
+            <th>2nd SEM SGPA</th>
+            <th>3rd SEM SGPA</th>
+            <th>4th SEM SGPA</th>
+            <th>5th SEM SGPA</th>
+            <th>6th SEM SGPA</th>
+            <th>7th SEM SGPA</th>
+            <th>8th SEM SGPA</th>
+            <th>TOTAL CGPA</th>
+        </tr>
+
+        <tr>
+            <td>NULL</td>
+            <td>NULL</td>
+            <td>7.43</td>
+            <td>7.23</td>
+            <td> </td>
+            <td> </td>
+            <th> </th>
+            <th> </th>
+            <th>7.35</th>
+
+        </tr>
+
+
+    </table>
+</div>
+    
+        <!-- Main Content Area -->
+       
+
+        <!-- Sidebar -->
+       
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 My Awesome Website | All rights reserved.</p>
+    </footer>
+
+    
+    
+</body>
+</html>

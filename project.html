@@ -3,9 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page</title>
-    <link rel="stylesheet" href="PHP-PRACTICE/favicon.ico" type="PHP-PRACTICE/x-icon">
+    <title>Responsive Webpage Layout with Sidebar</title>
+    <link rel="icon" href="PHP-PRACTICE/favicon.ico" type="PHP-PRACTICE/x-icon">
     <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
         /* Basic Reset */
         * {
             margin: 0;
@@ -14,134 +19,178 @@
         }
 
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
             background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #444;
+            padding: 10px;
+        }
+
+        nav ul {
+            list-style-type: none;
             display: flex;
             justify-content: center;
-            align-items: center;
-            height: 100vh;
         }
 
-        .login-container {
-            background-color: #fff;
-            padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            width: 350px;
+        nav ul li {
+            margin: 0 15px;
         }
 
-        h2 {
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* Layout */
+        .container {
+            display: flex;
+            margin: 20px;
+        }
+
+        /* Sidebar styling */
+        .sidebar {
+            flex: 1;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        .sidebar h3 {
             text-align: center;
-            color: #333;
-            margin-bottom: 30px;
+            color: purple;
         }
 
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            color: #333;
-        }
-
-        .form-group input {
+        .sidebar button {
             width: 100%;
             padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
+            margin: 10px 0;
             font-size: 16px;
-        }
-
-        .form-group input:focus {
-            border-color: #4CAF50;
-            outline: none;
-        }
-
-        .forgot-password {
-            display: inline-block;
-            margin-top: 10px;
-            color: #007BFF;
-            text-decoration: none;
-            font-size: 14px;
-        }
-
-        .forgot-password:hover {
-            text-decoration: underline;
-        }
-
-        .submit-btn {
             background-color: #4CAF50;
             color: white;
             border: none;
-            padding: 12px;
-            width: 100%;
-            border-radius: 4px;
-            font-size: 16px;
             cursor: pointer;
+            border-radius: 5px;
         }
 
-        .submit-btn:hover {
+        .sidebar button:hover {
             background-color: #45a049;
         }
 
-        .error-message {
-            color: red;
-            font-size: 14px;
-            margin-bottom: 10px;
+        .main-content {
+            flex: 3;
+            padding: 20px;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 20px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
         }
     </style>
 </head>
 <body>
 
-    <div class="login-container">
-        <h2>Login</h2>
-        <form id="loginForm" onsubmit="return validateForm()">
-            <div class="form-group">
-                <label for="name">Full Name</label>
-                <input type="text" id="name" name="name" required>
+    <!-- Header -->
+    <header>
+        <h1>MY DETAILS</h1>
+        <p>Welcome to my webpage layout</p>
+    </header>
+
+    <!-- Main Layout with Sidebar and Main Content -->
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <h3>Semester Details</h3>
+            <button onclick="showSemesterDetails(1)">1st Semester</button>
+            <button onclick="showSemesterDetails(2)">2nd Semester</button>
+            <button onclick="showSemesterDetails(3)">3rd Semester</button>
+            <button onclick="showSemesterDetails(4)">4th Semester</button>
+            <button onclick="showSemesterDetails(5)">5th Semester</button>
+            <button onclick="showSemesterDetails(6)">6th Semester</button>
+            <button onclick="showSemesterDetails(7)">7th Semester</button>
+            <button onclick="showSemesterDetails(8)">8th Semester</button>
+        </div>
+
+        <!-- Main Content Area -->
+        <div class="main-content">
+            <h2 style="color: purple;">PERSONAL DETAILS</h2>
+            <div class="img-right">
+                <img src="IMG.jpg.jpg" alt="Description of Image" width="150">
             </div>
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" required>
-            </div>
-            <div class="form-group">
-                <label for="password">New Password</label>
-                <input type="password" id="password" name="password" required placeholder="Upper, lower, special character">
-            </div>
-            <a href="#" class="forgot-password">Forgot password?</a>
-            <div class="error-message" id="errorMessage"></div>
-            <button type="submit" class="submit-btn">Login</button>
-        </form>
+            <ol class="personal-details">
+                <text style="margin-right:20px;">
+                    <h3>NAME: ITHESH Js</h3>
+                    <h3>USN: 4HG23CS404</h3>
+                    <h3>PH NO: 9019816016</h3>
+                    <h3>GMAIL: itheshjs2004@gmail.com</h3>
+                    <h3>ADHAAR NO: 7870 0559 3512</h3>
+                    <h3>SSP ID: 20210448528</h3>
+                    <h3>ADDRESS: JANNAPURA MUDIGERE(T) <br> CHIKKAMAGALURU</h3>
+                </text>
+            </ol>
+            <hr style="color:black;">
+            <br>
+
+            <h2 style="color:purple;">CGPA AND SGPA DETAILS</h2>
+            <br>
+
+            <!-- Table to Display SGPA and CGPA -->
+            <table style="width: 100%">
+                <tr>
+                    <th>1ST SEM SGPA</th>
+                    <th>2nd SEM SGPA</th>
+                    <th>3rd SEM SGPA</th>
+                    <th>4th SEM SGPA</th>
+                    <th>5th SEM SGPA</th>
+                    <th>6th SEM SGPA</th>
+                    <th>7th SEM SGPA</th>
+                    <th>8th SEM SGPA</th>
+                    <th>TOTAL CGPA</th>
+                </tr>
+
+                <tr>
+                    <td>NULL</td>
+                    <td>NULL</td>
+                    <td>7.43</td>
+                    <td>7.23</td>
+                    <td> </td>
+                    <td> </td>
+                    <td> </td>
+                    <td> </td>
+                    <td>7.35</td>
+                </tr>
+            </table>
+        </div>
     </div>
 
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 My Awesome Website | All rights reserved.</p>
+    </footer>
+
     <script>
-        function validateForm() {
-            var name = document.getElementById('name').value;
-            var email = document.getElementById('email').value;
-            var password = document.getElementById('password').value;
-            var errorMessage = document.getElementById('errorMessage');
-
-            // Clear any previous error message
-            errorMessage.textContent = '';
-
-            // Name validation: Should not be empty
-            if (name.trim() === '') {
-                errorMessage.textContent = 'Please enter your name.';
-                return false;
-            }
-
-            // Password validation: Must contain uppercase, lowercase, number, and special character
-            var passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]{8,}$/;
-            if (!passwordRegex.test(password)) {
-                errorMessage.textContent = 'Password must be at least 8 characters long, contain uppercase, lowercase, a number, and a special character.';
-                return false;
-            }
-
-            // All fields are valid, redirect to the new page
-            window.location.href = 'https://itheshjs.github.io/project.html';
-            return false; // Prevent form submission for demonstration purposes
+        function showSemesterDetails(sem) {
+            alert("Showing details for Semester " + sem);
+            // Here, you can customize what you want to display when a semester button is clicked.
         }
     </script>
 
